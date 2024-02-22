@@ -1,15 +1,14 @@
 PROGRAMNAME = Flycam
 
-CC = gcc 
-CFLAGS = -Wall 
-LDFLAGS = -lwiringPi
+CC = g++
+CFLAGS =
+LDFLAGS = -pthread
+LIBFLAGS = -lMPU6050 -lwiringPi 
 SRCDIR = ./src
-OBJDIR = ./obj
 BINDIR = ./bin
 
-
 run:
-	$(CC) $(CFLAGS) $(SRCDIR)/*.c -o $(BINDIR)/$(PROGRAMNAME) $(LDFLAGS)
+	$(CC) $(CFLAGS) $(SRCDIR)/*.cpp -o $(BINDIR)/$(PROGRAMNAME) $(LIBFLAGS) $(LDFLAGS) 
 	$(BINDIR)/$(PROGRAMNAME)
 
 clean:
